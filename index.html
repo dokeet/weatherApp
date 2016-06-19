@@ -2,17 +2,43 @@
 <html>
 <head>
   <title>Welcome to Vue</title>
-  <link rel="stylesheet" href="css/output/output.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Cormorant+Infant" rel="stylesheet">
   <link rel="stylesheet" href="css/weathericons/weather-icons.css">
   <link rel="stylesheet" href="css/weathericons/weather-icons-wind.css">
-
-
-
+  <link rel="stylesheet" href="css/output/output.css">
 </head>
 <body>
-  <div id="app" v-cloak>
-    <div>
-      <h1>Temperatura:</h1>
+  <div id="app">
+    <div class="container" v-cloak>
+      <div class="row">
+       <div class="col s12 offset-m3 m6 offset-m3">
+         <div class="card" :style="{backgroundColor: backgroundColor}">
+           <div class="card-content white-text center-align">
+             <span class="card-title">
+               {{ip.city}}, {{ip.country}}
+             </span>
+             <!-- <input type="text" v-model="location.main.temp" placeholder="location.main.temp"> -->
+              <div class="main">
+               <i class="mainIcon wi" :class="icon"></i>
+               <div v-show="!changeTemp">
+                 <h1 @click="switchTemp">{{location.main.temp | kelvinToCelsius}}</h1>
+               </div>
+               <div v-else>
+                 <h1 @click="switchTemp">{{location.main.temp | kelvinToF}}</h1>
+               </div>
+               <h5>{{location.weather[0].description}}</h5>
+              </div>
+                <p>humidity: {{location.main.humidity}} <i class="wi wi-humidity"></i></p>
+                <p>
+                  wind: {{location.wind.speed}} m/sec  <i class="windIcon wi wi-wind" :class="{{wind}}"></i>
+                </p>
+
+           </div>
+          </div>
+       </div>
+     </div>
+      <!-- <h1>Temperatura:</h1>
         <div v-show="!changeTemp">
           <h1 @click="switchTemp">{{location.main.temp | kelvinToCelsius}}</h1>
         </div>
@@ -20,7 +46,7 @@
           <h1 @click="switchTemp">{{location.main.temp | kelvinToF}}</h1>
         </div>
         <p>{{location.weather[0].main}} - {{location.weather[0].description}}</p>
-      <i class="wi" :class="icon"></i>
+      <i class="wi" :class="icon"></i> -->
     </div>
   <!-- <pre>{{$data | json}}</pre> -->
   </div>
@@ -28,6 +54,7 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.25/vue.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/0.7.3/vue-resource.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

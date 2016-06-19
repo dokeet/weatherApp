@@ -1,7 +1,25 @@
 [v-cloak] {
   display: none; }
 
-h1 {
-  color: blue; }
+h1, h2, h3, h4, h5, h6, span {
+  color: white;
+  font-family: "Cormorant Infant", serif; }
+
+.mainIcon {
+  font-size: 128px;
+  color: white; }
+
+.windIcon {
+  font-size: 32px; }
+
+.wi-humidity {
+  font-size: 32px; }
+
+p {
+  font-size: 18px; }
+
+.main {
+  border-radius: 75%;
+  padding: 10px; }
 
 /*# sourceMappingURL=output.css.map */

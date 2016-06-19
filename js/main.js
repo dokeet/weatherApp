@@ -37,6 +37,27 @@ new Vue({
   computed: {
     icon: function(){
       return 'wi-owm-'+this.location.weather[0].id
+    },
+    wind: function() {
+      return 'towards-' + (this.location.wind.deg).toFixed(0) +'-deg'
+    },
+    backgroundColor: function(){
+      let celsius = (this.location.main.temp -  273.15).toFixed(0)
+      if(celsius < 10) {
+        return '#44AAD6'
+      }
+      else if (celsius < 16) {
+        return '#1B64A6'
+      }
+      else if (celsius < 24 ) {
+        return '#EEA252'
+      }
+      else if (celsius < 32 && celsius > 32) {
+        return '#E45C26'
+      }
+      else {
+        return '#C4C4B8'
+      }
     }
   },
 

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome to Vue</title>
+  <link rel="stylesheet" href="css/output/output.css">
+  <link rel="stylesheet" href="css/weathericons/weather-icons.css">
+  <link rel="stylesheet" href="css/weathericons/weather-icons-wind.css">
+
+
+
+</head>
+<body>
+  <div id="app" v-cloak>
+    <div>
+      <h1>Temperatura:</h1>
+        <div v-show="!changeTemp">
+          <h1 @click="switchTemp">{{location.main.temp | kelvinToCelsius}}</h1>
+        </div>
+        <div v-else>
+          <h1 @click="switchTemp">{{location.main.temp | kelvinToF}}</h1>
+        </div>
+        <p>{{location.weather[0].main}} - {{location.weather[0].description}}</p>
+      <i class="wi" :class="icon"></i>
+    </div>
+  <!-- <pre>{{$data | json}}</pre> -->
+  </div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.25/vue.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/0.7.3/vue-resource.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

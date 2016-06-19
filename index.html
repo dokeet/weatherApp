@@ -6,6 +6,7 @@
   <link href="https://fonts.googleapis.com/css?family=Cormorant+Infant" rel="stylesheet">
   <link rel="stylesheet" href="css/weathericons/weather-icons.css">
   <link rel="stylesheet" href="css/weathericons/weather-icons-wind.css">
+  <link rel="stylesheet" href="css/hint.css">
   <link rel="stylesheet" href="css/output/output.css">
 </head>
 <body>
@@ -21,12 +22,18 @@
              <!-- <input type="text" v-model="location.main.temp" placeholder="location.main.temp"> -->
               <div class="main">
                <i class="mainIcon wi" :class="icon"></i>
-               <div v-show="!changeTemp">
-                 <h1 @click="switchTemp">{{location.main.temp | kelvinToCelsius}}</h1>
-               </div>
-               <div v-else>
-                 <h1 @click="switchTemp">{{location.main.temp | kelvinToF}}</h1>
-               </div>
+
+                 <div v-show="!changeTemp">
+                   <span class="hint--right" aria-label="To fahrenheit">
+                     <h1 @click="switchTemp">{{location.main.temp | kelvinToCelsius}}</h1>
+                   </span>
+                 </div>
+                 <div v-else>
+                   <span class="hint--left" aria-label="To celsius">
+                     <h1 @click="switchTemp">{{location.main.temp | kelvinToF}}</h1>
+                   </span>
+                 </div>
+
                <h5>{{location.weather[0].description}}</h5>
               </div>
                 <p>humidity: {{location.main.humidity}} <i class="wi wi-humidity"></i></p>

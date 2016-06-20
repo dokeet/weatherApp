@@ -9,8 +9,8 @@
   <link rel="stylesheet" href="css/hint.css">
   <link rel="stylesheet" href="css/output/output.css">
 </head>
-<body>
-  <div id="app">
+<body id="app" :style="{backgroundColor: backgroundColor}">
+  <div>
     <div class="container" v-cloak>
       <div class="row">
        <div class="col s12 offset-m3 m6 offset-m3">
@@ -61,6 +61,7 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.25/vue.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/0.7.3/vue-resource.js"></script>
+  <script src="https://code.jquery.com/jquery-3.0.0.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
   <script src="js/main.js"></script>
 </body>

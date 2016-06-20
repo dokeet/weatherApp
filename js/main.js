@@ -43,17 +43,23 @@ new Vue({
     },
     backgroundColor: function(){
       let celsius = (this.location.main.temp -  273.15).toFixed(0)
-      if(celsius <= 10) {
+      if(celsius <= 5) {
+        return '#4FCAFF'
+      }
+      else if (celsius <= 12) {
         return '#44AAD6'
       }
-      else if (celsius <= 16) {
+      else if (celsius <= 18) {
         return '#1B64A6'
       }
       else if (celsius <= 24 ) {
-        return '#EEA252'
+        return '#006064'
       }
-      else if (celsius <= 32 && celsius >= 32) {
-        return '#E45C26'
+      else if (celsius <= 28 ) {
+        return '#ffa000'
+      }
+      else if (celsius <= 32 && celsius < 42 ) {
+        return '#f57c00'
       }
       else {
         return '#C4C4B8'
